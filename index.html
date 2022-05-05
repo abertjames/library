@@ -9,6 +9,7 @@
     <script src="javascript.js" defer></script>
 </head>
 <body>
+
     <div id="header">
         Header
         <p>Library</p>
@@ -23,16 +24,20 @@
 
     <div id="book-modal">
         <form class="book-form" id="bookForm">
-            <span id="close-modal">&times;</span>
+            <span class="close-modal">&times;</span>
             <input type="text" class="input" placeholder="Title" id="title" maxlength="100" required>
-            <input type="text" class="input" placeholder="Author" id="Author" maxlength="100" required>
-            <input type="number" class="input" placeholder="Page Count" id="pages" min="1" max="10000" required>
+            <input type="text" class="input" placeholder="Author" id="author" maxlength="100" required>
+            <input type="number" class="input" placeholder="Page Count" id="page-count" min="1" max="10000" required>
             <div>
                 <label for="readStatus">Have you read this book?</label>
                 <input type="checkbox" name="checkbox" id="readStatus">
             </div>
             <button type="submit">Add Book to Library</button>
         </form>
+    </div>
+    <div id="error-modal">
+        <span class="close-modal">&times;</span>
+        <span>This book is already in your library!</span>
     </div>
 
 </body>
