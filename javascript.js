@@ -47,8 +47,7 @@ const addBook = (e) => {
   
     
     library.addToLibrary(newBook)
-    // saveLocal()
-    // updateBooksGrid()
+    displayBooks();
     
     bookModal.style.display = "none";
 }
@@ -90,9 +89,12 @@ const genBookCard = (book) => {
 
     library_display.appendChild(bookCard);
 
-    title.textContent = `"${book.title}"`;
-    author.textContent = `"${book.author}"`;
-    page_count.textContent = `"${book.page_count}"`
+    bookCard.classList.add("book-card")
+
+    title.textContent = `"Title: ${book.title}"`;
+    author.textContent = `"Author: ${book.author}"`;
+    page_count.textContent = `"Number of Pages: ${book.page_count}"`;
+    removeButton.textContent = "Remove";
 
     if (book.readStatus) {
         readButton.textContent = "Read";
@@ -129,4 +131,3 @@ span[0].onclick = function() {
 span[1].onclick = function() {
     error_modal.style.display = "none";
 }
-
