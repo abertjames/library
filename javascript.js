@@ -141,6 +141,7 @@ const span = document.getElementsByClassName("close-modal");
 const error_modal = document.getElementById("error-modal");
 
 openBookButton.onclick = function() {
+    bookForm.reset()
     bookModal.style.display = "block";
 }
 
