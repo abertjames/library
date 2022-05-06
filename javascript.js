@@ -26,6 +26,9 @@ class Library{
     removeBook(title){
         this.bookList = this.bookList.filter((book) => book.title !== title )
     }
+    findBook(title) {
+        return this.bookList.find((book) => book.title == title)
+    }
 }
 
 const library = new Library();
@@ -115,11 +118,14 @@ const displayBooks = () => {
 }
 
 const toggleReadStatus = (e) => {
-    console.log(e)
+    const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll('"','');
+    const book = blookList.findBook(title)
+    book.isRead = !book.isRead
+    displayBooks()
 }
 
 const removeBook = (e) => {
-    const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll('"','')
+    const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll('"','');
     library.removeBook(title)
     displayBooks()
 }
