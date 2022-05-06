@@ -87,14 +87,17 @@ const genBookCard = (book) => {
     buttonBlock.appendChild(readButton);
     buttonBlock.appendChild(removeButton);
 
+    readButton.onclick = toggleReadStatus;
+    removeButton.onclick = removeBook;
+
     library_display.appendChild(bookCard);
 
     bookCard.classList.add("book-card")
 
-    title.textContent = `"Title: ${book.title}"`;
-    author.textContent = `"Author: ${book.author}"`;
-    page_count.textContent = `"Number of Pages: ${book.page_count}"`;
-    removeButton.textContent = "Remove";
+    title.textContent = `"${book.title}"`;
+    author.textContent = `"${book.author}"`;
+    page_count.textContent = `"${book.page_count}"`;
+    removeButton.textContent = "Remove Book";
 
     if (book.readStatus) {
         readButton.textContent = "Read";
@@ -109,6 +112,16 @@ const displayBooks = () => {
     for (let book of library.bookList){
         genBookCard(book)
     }
+}
+
+const toggleReadStatus = (e) => {
+    console.log(e)
+}
+
+const removeBook = (e) => {
+    const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll('"','')
+    library.removeBook(title)
+    displayBooks()
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
